@@ -51,6 +51,8 @@ async function run() {
                 res.json(products);
 
         })
+
+        
         app.put('/products/:id', async (req, res) => {
             const id = req.params.id;
             const updateProduct = req.body;
@@ -127,6 +129,8 @@ async function run() {
             const result = await ordersCollection.insertOne(orders);
             res.json(result)
         });
+
+
         // delete order
         app.delete('/orders/:id', async (req, res) => {
             const _id = req.params.id;
@@ -135,6 +139,9 @@ async function run() {
             const result = await ordersCollection.deleteOne(query);
             res.json(result);
           })
+        
+          
+
         app.get('/users/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email: email };
